@@ -5,6 +5,7 @@ var http = require('http'),
     favicon = require('serve-favicon'),
     errorhandler = require('errorhandler'),
     cookieParser = require('cookie-parser'),
+        cors = require("cors"),
     bodyParser = require('body-parser');
 
 var index = require('./routes/index');
@@ -40,13 +41,18 @@ app.use(function(req, res, next) {
 // error handler
 app.use(errorhandler());
 
-// Socket.IO
+//Allow cross origin request
+app.use(cors());
+
+
+ //Socket.IO
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
   socket.on('messageChange', function (data) {
     console.log(data);
-    socket.emit('receive', data.message.split('').reverse().join('') );
+    //socket.emit('receive', data.message.split('').reverse().join('') );
+      socket.emit('receive', data.message );
   });
 });
 server.listen(app.get('port'), function(){
