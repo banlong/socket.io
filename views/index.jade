@@ -4,9 +4,13 @@ block content
   h1= title
   p Welcome to
     span.received-message #{title}
-  input(type='text', class='message', placeholder='what is on your mind?')
+  input(type='text', class='message', placeholder='1. What is on your mind?(SignalServer')
+  input(type='button', onclick='socketio.sendMessage(document.querySelector(".message").value);', value="SEND")
+
+  input(type='text', class='message', placeholder='what is on your mind?(Send)')
   input(type='button', onclick='send()', value="SEND")
   script(src="/socket.io/socket.io.js")
+  script(src="javascripts/signalling.js")
   script.
     var socket = io.connect('http://localhost:3000');
     socket.on('receive', function (message) {
@@ -14,8 +18,11 @@ block content
       document.querySelector('.received-message').innerText = message;
     });
 
+    var socketio = new SignalServer('http://localhost:3000');
+
     var send = function(){
       var value = document.querySelector('.message').value;
       console.log('sending %s to server', value);
       socket.emit('messageChange',{message: value});
     }
+
