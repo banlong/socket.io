@@ -2,11 +2,11 @@
  * Created by nghiepnds on 12/2/2016.
  */
 angular.module('socket')
-    .factory('VideoUploadIO', function ($q, SocketIO) {
+    .factory('VideoUploadIO', function ($q, SocketIO, $timeout) {
 
         return {
             GetVideoID: getVideoID,
-            OnUploadStatusChange: onUploadStatusChange,
+            OnUploadStatusChange: onUploadStatusChange
         };
         //SECTION 1: UPLOAD VIDEO SIGNAL
         /*---------------------------------------------------------------
@@ -17,6 +17,7 @@ angular.module('socket')
             SocketIO.emit('get_video_id', JSON.stringify(args));
             var deferred = $q.defer();
 
+            //request timeout
             var timeoutPromise = $timeout(function() {
                 deferred.reject("Timed out");
             }, 250);

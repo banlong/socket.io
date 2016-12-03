@@ -2,7 +2,7 @@ var http = require('http'),
     express = require('express'),
     path = require('path'),
     logger = require('morgan'),
-    //favicon = require('serve-favicon'),
+    favicon = require('serve-favicon'),
     errorhandler = require('errorhandler'),
     cookieParser = require('cookie-parser'),
         cors = require("cors"),
@@ -21,7 +21,7 @@ app.set('view engine', 'jade');
 
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/icons', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
