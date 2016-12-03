@@ -2,7 +2,7 @@ var http = require('http'),
     express = require('express'),
     path = require('path'),
     logger = require('morgan'),
-    favicon = require('serve-favicon'),
+    //favicon = require('serve-favicon'),
     errorhandler = require('errorhandler'),
     cookieParser = require('cookie-parser'),
         cors = require("cors"),
@@ -52,8 +52,15 @@ io.sockets.on('connection', function (socket) {
   socket.on('messageChange', function (data) {
     console.log(data);
     //socket.emit('receive', data.message.split('').reverse().join('') );
-      socket.emit('receive', data.message );
+    socket.emit('receive', data.message );
   });
+
+  socket.on('send-message', function (data) {
+    console.log(data.email);
+    //socket.emit('receive', data.message.split('').reverse().join('') );
+    socket.emit('receive-message', data.email );
+  });
+
 });
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

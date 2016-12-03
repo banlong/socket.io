@@ -7,8 +7,6 @@ block content
   input(type='text', class='message', placeholder='1. What is on your mind?(SignalServer')
   input(type='button', onclick='socketio.sendMessage(document.querySelector(".message").value);', value="SEND")
 
-  input(type='text', class='message', placeholder='what is on your mind?(Send)')
-  input(type='button', onclick='send()', value="SEND")
   script(src="/socket.io/socket.io.js")
   script(src="javascripts/signalling.js")
   script.

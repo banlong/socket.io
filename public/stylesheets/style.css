@@ -1,8 +1,57 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color : #484848;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+form{
+  width: 320px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+input {
+  font-size: 100%;
+  color: #5a5854;
+  background-color: #f2f2f2;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 5px 5px 5px 30px;
+  background-repeat: no-repeat;
+  background-position: 8px 7px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+input:focus, input:hover {
+  background-color: #ffffff;
+  border: 1px solid #b1e1e4;}
+
+input#email {
+  background-image: url("/images/email.png");
+}
+
+input#twitter {
+  background-image: url("/images/twitter.png");
+}
+
+input#web {
+  background-image: url("/images/web.png");
+}
+
+button#sEmail{
+  font-size: 100%;
+  color: #5a5854;
+  background-color: #ffffff;
+  border: 1px ridge #97d606;
+  border-radius: 5px;
+  display:inline-block;
+  float: right;
+  height: 110px;
+  width: 80px;
+}
+
+button#sEmail:focus, button#sEmail:hover {
+  background-color: rgba(232, 229, 10, 0.74);
+  border: 1px solid #bdbdbd;
 }

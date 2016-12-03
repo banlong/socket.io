@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="socket">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <title>Styling Text Inputs</title>
+</head>
+<body ng-controller="Chat">
+    <form>
+        <input type="text" id="email" ng-model="email"/>
+        <button id="sEmail" ng-click="sendMessage()">Send</button>
+        <input type="text" id="twitter"/>
+        <input type="text" id="web"/>
+    </form>
+
+    <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+    <script src="javascripts/socketio/socket.io.js"></script>
+    <script src="javascripts/chat.controller.js"></script>
+    <script src="javascripts/socket.ioservices.js"></script>
+    <script src="javascripts/message.ioservices.js"></script>
+
+</body>
+</html>
